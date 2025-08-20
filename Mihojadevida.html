@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Hernán Rodríguez Mora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-print-color-adjust: exact; /* Ensures background colors print */
+            color-adjust: exact;
+        }
+
+        /* Estilos específicos para impresión */
+        @media print {
+            /* Reset universal para márgenes y rellenos en impresión */
+            * {
+                margin: 0 !important;
+                padding: 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            html, body {
+                width: 100% !important;
+                height: auto !important;
+                background-color: #fff !important; /* Fondo blanco forzado para impresión */
+                display: block !important; /* Asegura que el body no use flexbox en impresión */
+                overflow: hidden !important; /* Evita barras de desplazamiento que afecten el diseño */
+            }
+
+            main {
+                width: 100% !important;
+                max-width: none !important; /* Anula el max-w de Tailwind en impresión */
+                margin: 0 !important; /* Elimina márgenes de centrado en impresión */
+                padding: 0 !important; /* Elimina el padding del main en impresión */
+                box-shadow: none !important; /* Elimina la sombra en impresión */
+                border-radius: 0 !important; /* Elimina los bordes redondeados en impresión */
+                display: grid !important; /* Asegura que el layout de grid se mantenga en impresión */
+                grid-template-columns: 1fr 2fr !important; /* Fuerza las columnas 1/3 y 2/3 para impresión */
+                gap: 0 !important; /* Elimina cualquier espacio entre las columnas en impresión */
+            }
+
+            aside {
+                grid-column: span 4 / span 4 !important; /* Fuerza a ocupar 4 columnas en impresión */
+                padding: 0.5rem !important; /* Padding mínimo para la columna izquierda en impresión */
+                border-radius: 0 !important; /* Elimina bordes redondeados en impresión */
+            }
+
+            .col-span-8-print { /* Clase específica para la columna derecha en impresión */
+                grid-column: span 8 / span 8 !important; /* Fuerza a ocupar 8 columnas en impresión */
+                padding: 0.5rem !important; /* Padding mínimo para la columna derecha en impresión */
+            }
+
+            .no-print {
+                display: none !important; /* Asegura que elementos con esta clase no se impriman */
+            }
+
+            .page-break {
+                page-break-before: always !important; /* Fuerza salto de página */
+            }
+
+            /* Reglas para evitar cortes de contenido en impresión */
+            section, aside > div {
+                page-break-inside: avoid !important;
+            }
+            h1, h2, h3, h4 {
+                page-break-after: avoid !important;
+            }
+            ul, ol, p, div {
+                page-break-before: auto !important;
+                page-break-after: auto !important;
+                page-break-inside: avoid !important;
+            }
+        }
+
+        /* Estilos generales para insignias de habilidades */
+        .skill-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            margin: 0.2rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background-color: #e0f2fe; /* light blue */
+            color: #0c4a6e; /* dark blue */
+        }
+        /* Estilos para el gráfico de habilidades */
+        .skill-bar-container {
+            background-color: #e2e8f0; /* slate-200 */
+            border-radius: 0.5rem; /* rounded-full */
+            height: 0.75rem; /* h-3 */
+            overflow: hidden;
+        }
+        .skill-bar {
+            background-color: #0ea5e9; /* sky-500 */
+            height: 100%;
+            border-radius: 0.5rem; /* rounded-full */
+        }
+    </style>
+</head>
+<body class="bg-white"> <!-- Fondo blanco para la vista en pantalla -->
+
+    <main class="w-full max-w-4xl bg-white shadow-2xl rounded-lg grid grid-cols-1 md:grid-cols-12 p-4 sm:p-8 mx-auto">
+        <!-- Columna Izquierda -->
+        <aside class="col-span-12 md:col-span-4 bg-slate-800 text-white p-4 sm:p-8 rounded-l-lg">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="w-32 h-32 bg-slate-700 rounded-full mb-4 flex items-center justify-center overflow-hidden">
+                    <!-- Your profile picture from Flickr -->
+                    <img src="https://live.staticflickr.com/65535/54683914792_a72d121752_n.jpg" alt="Foto de Perfil" class="w-full h-full object-cover">
+                </div>
+                <h1 class="text-4xl font-bold text-cyan-400">HERNÁN RODRÍGUEZ</h1>
+                <h2 class="text-lg font-light text-slate-300 mt-1">MÁSTER EN TECNOLOGÍAS EMERGENTES EN EDUCACIÓN</h2>
+            </div>
+
+            <div class="mt-10">
+                <h3 class="text-xl font-semibold border-b-2 border-cyan-400 pb-2 mb-4">CONTACTO</h3>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.759a11.03 11.03 0 004.28 4.28l.759-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                        <span>(311) 207-8846</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+                        <span>harm2005@gmail.com</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" /></svg>
+                        <a href="https://www.linkedin.com/in/hernanrodriguezmora/" target="_blank" class="hover:text-cyan-400">LinkedIn Profile</a>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
+                        <span>Bogotá, Colombia</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mt-10">
+                <h3 class="text-xl font-semibold border-b-2 border-cyan-400 pb-2 mb-4">ÁREAS DE EXPERTISE</h3>
+                <ul class="space-y-2 text-sm list-disc list-inside">
+                    <li>Inteligencia Artificial Educativa</li>
+                    <li>Robótica Educativa (Lego, Micro:bit)</li>
+                    <li>Programación K-12</li>
+                    <li>Diseño Curricular STEAM</li>
+                    <li>Formación Docente (Train the Trainers)</li>
+                    <li>Gamificación (Minecraft EDU)</li>
+                    <li>Gestión de Proyectos Educativos</li>
+                </ul>
+            </div>
+            
+            <div class="mt-10">
+                <h3 class="text-xl font-semibold border-b-2 border-cyan-400 pb-2 mb-4">TECNOLOGÍAS</h3>
+                <div>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">JavaScript</span>
+                    <span class="skill-badge">HTML/CSS</span>
+                    <span class="skill-badge">Scratch</span>
+                    <span class="skill-badge">Blockly</span>
+                    <span class="skill-badge">MakeCode</span>
+                    <span class="skill-badge">App Inventor</span>
+                    <span class="skill-badge">Minecraft EDU</span>
+                    <span class="skill-badge">Lego EV3/Spike</span>
+                    <span class="skill-badge">Moodle</span>
+                    <span class="skill-badge">Blackboard</span>
+                    <span class="skill-badge">Excel Avanzado</span>
+                    <span class="skill-badge">PowerBI</span>
+                </div>
+            </div>
+
+            <div class="mt-10">
+                <h3 class="text-xl font-semibold border-b-2 border-cyan-400 pb-2 mb-4">EDUCACIÓN</h3>
+                <div class="text-sm">
+                    <p class="font-bold">Maestría en Tecnologías Emergentes en Educación</p>
+                    <p class="text-slate-300">Universidad MUST, La Florida, USA</p>
+                    <p class="font-bold mt-3">Licenciatura en Informática Educativa</p>
+                    <p class="text-slate-300">Universidad Santo Tomás</p>
+                </div>
+            </div>
+            
+            <div class="mt-10">
+                <h3 class="text-xl font-semibold border-b-2 border-cyan-400 pb-2 mb-4">IDIOMAS</h3>
+                <div class="text-sm">
+                    <p><strong>Español:</strong> Nativo</p>
+                    <p><strong>Inglés:</strong> Intermedio B1</p>
+                </div>
+            </div>
+
+            <div class="mt-10">
+                <h3 class="text-xl font-semibold border-b-2 border-cyan-400 pb-2 mb-4">REFERENCIAS</h3>
+                <ul class="space-y-3 text-sm">
+                    <li>
+                        <p class="font-bold">Melva Rodriguez</p>
+                        <p class="text-slate-300">Docente Mintic</p>
+                        <p class="text-slate-300">(312) 434-0644</p>
+                    </li>
+                    <li class="mt-3">
+                        <p class="font-bold">Sandra Acuña</p>
+                        <p class="text-slate-300">Directora TIC Colsubsidio</p>
+                        <p class="text-slate-300">(310) 557-5218</p>
+                    </li>
+                    <li class="mt-3">
+                        <p class="font-bold">Elizabeth Cangrejo</p>
+                        <p class="text-slate-300">Rectora San Juan de Avila</p>
+                        <p class="text-slate-300">(311) 221-4282</p>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <!-- Columna Derecha -->
+        <div class="col-span-12 md:col-span-8 p-4 sm:p-8 col-span-8-print">
+            <section>
+                <h3 class="text-2xl font-bold text-slate-800 border-b-4 border-slate-200 pb-2 mb-4">PERFIL PROFESIONAL</h3>
+                <p class="text-slate-600 text-justify">
+                    Líder en educación con más de 18 años de experiencia y Máster en Tecnologías Emergentes. Apasionado por transformar la enseñanza a través de la Inteligencia Artificial, la programación y la robótica. Experto en el diseño e implementación de currículos STEAM K-12 y en la formación de docentes a nivel LATAM, liderando proyectos de alto impacto con aliados como Microsoft, IBM y SENA.
+                </p>
+            </section>
+
+            <section class="mt-8">
+                <h3 class="text-2xl font-bold text-slate-800 border-b-4 border-slate-200 pb-2 mb-4">EXPERIENCIA DESTACADA</h3>
+                
+                <div class="mb-6">
+                    <div class="flex justify-between items-baseline">
+                        <h4 class="text-xl font-semibold text-sky-700">Director Académico y de Proyectos</h4>
+                        <p class="text-sm text-slate-500">2018 - 2024</p>
+                    </div>
+                    <p class="text-md font-medium text-slate-600">Arukay SAS</p>
+                    <ul class="mt-2 list-disc list-inside text-slate-600 space-y-1 text-sm">
+                        <li>Lideré el desarrollo y la implementación de currículos de pensamiento computacional para colegios en LATAM.</li>
+                        <li>Dirigí el proyecto SENA Tecnoacademias, logrando la certificación de <strong>11,000 aprendices</strong> en lenguajes de programación a nivel nacional.</li>
+                        <li>Gestioné proyectos de formación en IA y Robótica con <strong>IBM</strong> y de programación con <strong>Microsoft</strong> (Minecraft EDU) para la SED Bogotá, Medellín y empresas como ARGOS.</li>
+                        <li>Organicé y ejecuté por 5 años torneos intercolegiados de programación, impactando a más de <strong>3,000 estudiantes</strong> y 50 colegios por evento.</li>
+                        <li>Diseñé e implementé programas de certificación docente en lenguajes de programación y metodologías STEAM.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex justify-between items-baseline">
+                        <h4 class="text-xl font-semibold text-sky-700">Formador Docente en IA y STEAM</h4>
+                        <p class="text-sm text-slate-500">2024 - Presente</p>
+                    </div>
+                    <p class="text-md font-medium text-slate-600">Uniandina, Colegios y Empresas</p>
+                    <ul class="mt-2 list-disc list-inside text-slate-600 space-y-1 text-sm">
+                        <li>Docente del diplomado en herramientas educativas con IA para profesionales y empresas en Uniandina.</li>
+                        <li>Tallerista especializado en la aplicación de IA, Lego Innovation y metodologías STEAM para docentes de primaria y bachillerato.</li>
+                        <li>Constructor académico para la línea Neotech de Colsubsidio, creando indicadores de evaluación para ciclos II, III y IV.</li>
+                        <li>Docente de Inteligencia Artificial aplicado a Excel Avanzado para Empresas.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex justify-between items-baseline">
+                        <h4 class="text-xl font-semibold text-sky-700">Jefe de Área y Coordinador de Calidad</h4>
+                        <p class="text-sm text-slate-500">2002 - 2017</p>
+                    </div>
+                    <p class="text-md font-medium text-slate-600">Colegio Bilingüe San Juan de Ávila / Colegio Canapro</p>
+                    <ul class="mt-2 list-disc list-inside text-slate-600 space-y-1 text-sm">
+                        <li>Lideré el área de tecnología, diseñando e implementando el plan de estudios K-12.</li>
+                        <li>Coordiné el sistema de gestión de calidad bajo la norma <strong>ISO 9001:2008</strong>, realizando auditorías internas y liderando comités de mejora continua.</li>
+                        <li>Pionero en la implementación de cursos de programación y robótica con Scratch y Lego en el currículo escolar.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mt-8">
+                <h3 class="text-2xl font-bold text-slate-800 border-b-4 border-slate-200 pb-2 mb-4">CERTIFICACIONES Y RECONOCIMIENTOS</h3>
+                <ul class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-600 text-sm">
+                    <li class="flex items-start"><span class="text-sky-700 font-bold mr-2">▸</span>Jurado en World Robot Olympiad (WRO) 2024</li>
+                    <li class="flex items-start"><span class="text-sky-700 font-bold mr-2">▸</span>Microsoft Innovative Educator (MIE) Expert</li>
+                    <li class="flex items-start"><span class="text-sky-700 font-bold mr-2">▸</span>Generative AI for Educators - United Latino Students Association</li>
+                    <li class="flex items-start"><span class="text-sky-700 font-bold mr-2">▸</span>Auditor Interno de Calidad ISO 9001:2008</li>
+                    <li class="flex items-start"><span class="text-sky-700 font-bold mr-2">▸</span>Formación en Ambientes Virtuales (Blackboard)</li>
+                    <li class="flex items-start"><span class="text-sky-700 font-bold mr-2">▸</span>Certificaciones SENA en NTIC, Seguridad Informática y Gerencia de Proyectos.</li>
+                    <li class="flex items-start"><span class="text-sky-700 font-bold mr-2">▸</span>Generative AI for Educators Certificate GOOGLE</li>
+                    <li class="flex items-start"><span class="text-sky-700 font-bold mr-2">▸</span>Certificaciones SENA en Estrategias Gerenciales</li>
+                </ul>
+            </section>
+
+            <section class="mt-8">
+                <h3 class="text-2xl font-bold text-slate-800 border-b-4 border-slate-200 pb-2 mb-4">HABILIDADES CLAVE</h3>
+                <div class="space-y-4 text-slate-600">
+                    <div>
+                        <p class="font-semibold text-sm mb-1">Inteligencia Artificial Educativa</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sm mb-1">Robótica Educativa</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sm mb-1">Programación K-12</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sm mb-1">Diseño Curricular STEAM</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sm mb-1">Formación de Docentes</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sm mb-1">Gestión de Proyectos Educativos</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>
